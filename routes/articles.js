@@ -31,5 +31,9 @@ router.get("/:slug", async (req, res) => {
 });
 
 //Deleting Articles
+router.delete("/:id", async (req, res) => {
+  await Article.findByIdAndDelete(req.params.id);
+  res.send("Article Deleted" + req.params.id);
+});
 
 module.exports = router;
