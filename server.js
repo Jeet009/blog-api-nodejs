@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const articleRouter = require("./routes/articles");
+const authRouter = require("./routes/auth");
 const bodyParser = require("body-parser");
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Intializing Route - { Using Middleware }
+app.use("/auth", authRouter);
 app.use("/articles", articleRouter);
 
 //Listening to Port 5000
